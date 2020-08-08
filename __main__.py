@@ -1,4 +1,5 @@
 import sys
+from itertools import chain
 from typing import List, Union
 
 board: List[List[Union[int, str]]] = [[0, 0, 0],
@@ -37,8 +38,7 @@ def check_game_over(symbol, gamer) -> None:
             print(f'\n\nИгрок {gamer} победил!')
             sys.exit()
 
-    rows = sum(board, [])
-    if all(cell != 0 for cell in rows):  # проверка на то, что все клетки заняты
+    if all(cell != 0 for cell in chain.from_iterable(board)):  # проверка на то, что все клетки заняты
         print(f'\n\nНичья!')
         sys.exit()
 
