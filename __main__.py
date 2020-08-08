@@ -38,13 +38,13 @@ def check_game_over(symbol, gamer) -> None:
             sys.exit()
 
     rows = sum(board, [])
-    if all(cell != 0 for cell in rows):
+    if all(cell != 0 for cell in rows):  # проверка на то, что все клетки заняты
         print(f'\n\nНичья!')
         sys.exit()
 
 
 def turn(gamer: int) -> None:
-    symbol = 'X' if gamer == 1 else 'Y'
+    symbol = 'X' if gamer == 1 else 'Y'  # Y вместо O, чтобы не путать с 0
     print(f'\n\nХод {gamer}-го игрока.')
 
     while True:
